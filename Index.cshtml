@@ -1,0 +1,40 @@
+﻿@model List<MK.StordProcedureMVC.Models.EmpModles>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1>Emp All Data</h1>
+<table class="table table-bordered table-hover table-responsive">
+    <tr>
+        <th>EmpId</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>AdressId</th>
+        <th>Destrict</th>
+        <th>PinCode</th>
+        <th>DepId</th>
+        <th>DepCode</th>
+        <th>DepName</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EmpId</td>
+            <td>@item.Name</td>
+            <td>@item.Email</td>
+            <td>@item.Phone</td>
+            <td>@item.AdressId</td>
+            <td>@item.PinCode</td>
+            <td>@item.District</td>
+            <td>@item.DeptId</td>
+            <td>@item.DepCode</td>
+            <td>@item.DepName</td>
+            <td><a class="btn btn-warning " href="@Url.Action("Edit","Home",new { @item.EmpId} )">Edit</a></td>
+            <td><a class="btn btn-danger" href="@Url.Action("Delete","Home",new {item.EmpId,item.AdressId,item.DeptId})">Delete</a></td>
+        </tr>
+    }
+</table>

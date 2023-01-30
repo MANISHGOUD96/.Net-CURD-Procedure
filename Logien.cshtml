@@ -1,0 +1,32 @@
+﻿
+@model MK.StordProcedureMVC.Models.LogienModel
+@{
+    ViewBag.Title = "Logien";
+}
+
+<h2>Employee Logien</h2>
+<style>
+    .error{
+        color:#ff0000;
+    }
+</style>
+
+@using (@Html.BeginForm("logien", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        <h4><label>Name</label></h4>
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.Email,"",new {@class="error"})
+        <h4 class="error">@TempData["Ivalid"]</h4>
+    </div>
+
+    <div class="form-group">
+        <h4><label>Password</label></h4>
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Password, "", new {@class="error"})
+        <h4 class="error">@TempData["InvalidPass"]</h4>
+    </div>
+
+    <button class="btn btn-danger" type="reset">Reset</button>
+    <button class="btn btn-success" type="submit">Logien</button>
+}

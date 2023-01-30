@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="emModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="logien">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
+          <Property Name="Password" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Function Name="DeletTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpId" Type="int" Mode="In" />
+          <Parameter Name="adressId" Type="int" Mode="In" />
+          <Parameter Name="deptId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetAllData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetAllDataWithId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Insertvalue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="Phone" Type="varchar" Mode="In" />
+          <Parameter Name="adressId" Type="int" Mode="In" />
+          <Parameter Name="deptId" Type="int" Mode="In" />
+          <Parameter Name="Village" Type="varchar" Mode="In" />
+          <Parameter Name="PinCode" Type="int" Mode="In" />
+          <Parameter Name="BuildingNo" Type="varchar" Mode="In" />
+          <Parameter Name="District" Type="varchar" Mode="In" />
+          <Parameter Name="DepCode" Type="varchar" Mode="In" />
+          <Parameter Name="DepName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="Phone" Type="varchar" Mode="In" />
+          <Parameter Name="adressId" Type="int" Mode="In" />
+          <Parameter Name="Village" Type="varchar" Mode="In" />
+          <Parameter Name="PinCode" Type="int" Mode="In" />
+          <Parameter Name="BuildingNo" Type="varchar" Mode="In" />
+          <Parameter Name="District" Type="varchar" Mode="In" />
+          <Parameter Name="deptId" Type="int" Mode="In" />
+          <Parameter Name="DepCode" Type="varchar" Mode="In" />
+          <Parameter Name="DepName" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="emModelStoreContainer">
+          <EntitySet Name="logien" EntityType="Self.logien" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="emModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="emEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="GetAllData" ReturnType="Collection(emModel.GetAllData_Result)" />
+          <FunctionImport Name="Insertvalue">
+            <Parameter Name="EmpId" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="adressId" Mode="In" Type="Int32" />
+            <Parameter Name="deptId" Mode="In" Type="Int32" />
+            <Parameter Name="Village" Mode="In" Type="String" />
+            <Parameter Name="PinCode" Mode="In" Type="Int32" />
+            <Parameter Name="BuildingNo" Mode="In" Type="String" />
+            <Parameter Name="District" Mode="In" Type="String" />
+            <Parameter Name="DepCode" Mode="In" Type="String" />
+            <Parameter Name="DepName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DeletTable">
+            <Parameter Name="EmpId" Mode="In" Type="Int32" />
+            <Parameter Name="adressId" Mode="In" Type="Int32" />
+            <Parameter Name="deptId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateTable">
+            <Parameter Name="EmpId" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="adressId" Mode="In" Type="Int32" />
+            <Parameter Name="Village" Mode="In" Type="String" />
+            <Parameter Name="PinCode" Mode="In" Type="Int32" />
+            <Parameter Name="BuildingNo" Mode="In" Type="String" />
+            <Parameter Name="District" Mode="In" Type="String" />
+            <Parameter Name="deptId" Mode="In" Type="Int32" />
+            <Parameter Name="DepCode" Mode="In" Type="String" />
+            <Parameter Name="DepName" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="logiens" EntityType="emModel.logien" />
+          <FunctionImport Name="GetAllDataWithId" ReturnType="Collection(emModel.GetAllDataWithId_Result)">
+          <Parameter Name="EmpId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetAllData_Result">
+          <Property Type="Int32" Name="Id" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="PinCode" Nullable="true" />
+          <Property Type="String" Name="District" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="DepCode" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="DepName" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="logien">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="GetAllDataWithId_Result">
+          <Property Type="Int32" Name="EmpId" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="AdressId" Nullable="true" />
+          <Property Type="String" Name="Village" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="PinCode" Nullable="true" />
+          <Property Type="String" Name="BuildingNo" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="District" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="DeptId" Nullable="true" />
+          <Property Type="String" Name="DepCode" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="DepName" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="emModelStoreContainer" CdmEntityContainer="emEntities" >
+          <FunctionImportMapping FunctionImportName="GetAllData" FunctionName="emModel.Store.GetAllData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="emModel.GetAllData_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="DepCode" ColumnName="DepCode" />
+                <ScalarProperty Name="DepName" ColumnName="DepName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Insertvalue" FunctionName="emModel.Store.Insertvalue" />
+          <FunctionImportMapping FunctionImportName="DeletTable" FunctionName="emModel.Store.DeletTable" />
+          <FunctionImportMapping FunctionImportName="UpdateTable" FunctionName="emModel.Store.UpdateTable" />
+          <EntitySetMapping Name="logiens">
+            <EntityTypeMapping TypeName="emModel.logien">
+              <MappingFragment StoreEntitySet="logien">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetAllDataWithId" FunctionName="emModel.Store.GetAllDataWithId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="emModel.GetAllDataWithId_Result">
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="AdressId" ColumnName="AdressId" />
+                <ScalarProperty Name="Village" ColumnName="Village" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="BuildingNo" ColumnName="BuildingNo" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="DepCode" ColumnName="DepCode" />
+                <ScalarProperty Name="DepName" ColumnName="DepName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

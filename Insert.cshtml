@@ -1,0 +1,91 @@
+﻿@model MK.StordProcedureMVC.Models.EmpModles
+
+@{
+    ViewBag.Title = "Insert";
+}
+
+<h2>Insert</h2>
+<style>
+    .error{
+        color:#ff0000;
+    }
+</style>
+
+@using (Html.BeginForm("Insert", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label>EmpId</label>
+        @Html.TextBoxFor(m => m.EmpId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.EmpId,"", new {@class="error"})
+    </div>
+
+    <div class="form-group">
+        <label>Name</label>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "error" })
+    </div>
+
+    <div class=" form-group">
+        <label>Email</label>
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+    </div>
+
+    <div class=" form-group">
+        <label>Phone</label>
+        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "error" })
+    </div>
+
+    <div class=" form-group">
+        <label>AdressId</label>
+        @Html.TextBoxFor(m => m.AdressId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AdressId, "", new { @class = "error" })
+    </div>
+
+    <div class=" form-group">
+        <label>DepId</label>
+        @Html.TextBoxFor(m => m.DeptId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DeptId, "", new { @class = "error" })
+    </div>
+
+    <div class=" form-group">
+        <label>Village</label>
+        @Html.TextBoxFor(m => m.Village, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Village, "", new { @class = "error" })
+    </div>
+
+    <div class=" form-group">
+        <label>PinCode</label>
+        @Html.TextBoxFor(m => m.PinCode, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.PinCode, "", new { @class = "error" })
+    </div>
+    <div class=" form-group">
+        <label>Building No</label>
+        @Html.TextBoxFor(m => m.BuildingNo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.BuildingNo, "", new { @class = "error" })
+    </div>
+
+    <div class=" form-group">
+        <label>Destrict</label>
+        @Html.TextBoxFor(m => m.District, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.District, "", new { @class = "error" })
+    </div>
+
+    <div class=" form-group">
+        <label>DepCode</label>
+        @Html.TextBoxFor(m => m.DepCode, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DepCode, "", new { @class = "error" })
+    </div>
+
+    <div class=" form-group">
+        <label>DepName</label>
+        @Html.TextBoxFor(m => m.DepName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EmpId, "", new { @class = "error" })
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+}
+
+

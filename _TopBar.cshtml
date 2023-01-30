@@ -1,0 +1,18 @@
+﻿<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Table", "Index", "Home")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact-Us", "Contact", "Home")</li>
+        <li>@Html.ActionLink("AddEmpDatils", "Insert", "Home")</li>
+        @if (Session["Email"] == null)
+        {
+            <li>@Html.ActionLink("Logien", "Logien", "Home")</li>
+        }
+
+        @if (Session["Email"] != null)
+        {
+            <li>@Html.ActionLink("LogOut", "LogOut", "Home")</li>
+        }
+    </ul>
+    <h6 style="color:#ffffff">@Session["Email"]</h6>
+</div>
